@@ -1,5 +1,6 @@
 import { DB32 } from './util/colors.js';
 
+
 export default class Game {
 
   constructor() {
@@ -46,6 +47,4 @@ export default class Game {
     this.display.clear();
     this.currentScreen.render(this.display);
   }
-
-
 }

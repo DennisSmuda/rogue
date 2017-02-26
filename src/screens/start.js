@@ -1,4 +1,11 @@
+import PlayScreen from './play';
 
+/**
+ * Start Screen
+ *
+ * Shown on first load
+ * - TODO: Main Menu
+ */
 export default class StartScreen {
   constructor(game) {
     this.game = game;
@@ -15,7 +22,7 @@ export default class StartScreen {
   handleInput(inputType, inputData) {
     if (inputType === 'keydown') {
       if (inputData.keyCode === ROT.VK_RETURN) {
-        this.game.switchScreen(new StartScreen(this.game));
+        this.game.switchScreen(new PlayScreen(this.game));
       }
     }
   }

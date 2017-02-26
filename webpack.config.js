@@ -11,6 +11,10 @@ module.exports = {
     // With the filename `build.js` so it's dist/build.js
     filename: 'build.js'
   },
+  resolve: {
+    extensions: ['.js', '.scss'],
+    modules: ['node_modules']
+  },
   module: {
     rules: [
       {
