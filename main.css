@@ -1,5 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 
 body {
   font-family: 'Consolas';
-  background-color: rgb(66, 66, 66);
+  background-color: #141321;
+
+  color: white;
+  margin: 1rem;
+}
+
+a {
+  color: white;
+}
+a:hover {
+  text-decoration: none;
+}
+
+
+h1 {
+  margin: 0;
+  font-size: 220%;
+}
+
+#game {
+  display: flex;
+  justify-content: center;
+}
+
+canvas {
+  margin: 1rem;
+  box-shadow: 0 3px 9px 6px rgba(0,0,0,0.1);
 }

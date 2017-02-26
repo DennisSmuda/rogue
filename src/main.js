@@ -12,7 +12,8 @@ window.onload = () => {
   } else {
     let game = new Game();
     game.init();
-    document.body.appendChild(game.getDisplay().getContainer());
+    // document.body.appendChild(game.getDisplay().getContainer());
+    document.querySelector('#game').appendChild(game.getDisplay().getContainer());
     game.switchScreen(new StartScreen(game))
   }
 }
