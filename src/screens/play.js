@@ -13,16 +13,17 @@ export default class PlayScreen {
   constructor(game) {
     this.game = game;
     this.player = null;
-    this.map = [];
+    this.map = null ;
     this.mapWidth = 100;
     this.mapHeight = 48;
   }
 
   enter() {
+    let map = [];
     for (let x = 0; x < this.mapWidth; x++) {
-      this.map.push([]);
+      map.push([]);
       for (let y = 0; y < this.mapHeight; y++) {
-        this.map[x].push(new NullTile())
+        map[x].push(new NullTile())
       }
     }
 
@@ -35,13 +36,15 @@ export default class PlayScreen {
     }
     generator.create((x, y, v) => {
       if (v === 1) {
-        this.map[x][y] = new FloorTile();
+        map[x][y] = new FloorTile();
       } else {
-        this.map[x][y] = new WallTile();
+        map[x][y] = new WallTile();
       }
     });
 
     this.player = new Player();
+    this.map = new Map(map, this.player);
+    this.map.getEngine().start();
 
   }
 
