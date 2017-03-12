@@ -1,6 +1,27 @@
 // import Fungus from './entities/fungus'
 
 export default class Map {
+  /**
+   * Map Constructor
+   */
+  constructor(tiles, player) {
+    console.log('Map Constructor');
+    this.tiles = tiles;
+    this.width = tiles.length;
+    this.height = tiles[0].length;
+
+    this.entities = [];
+    // Engine and scheduler
+    this.scheduler = new ROT.Scheduler.Simple();
+    this.engine    = new ROT.Engine(this.scheduler);
+
+    // Add actors
+    this.addEntityAtRandomPosition(player);
+
+    for (var i = 0; i < this.entities.length; i++) {
+      this.addEntityAtRandomPosition(new Fungus());
+    }
+  }
 
   addEntity(entity) {
     if (entity.getX() < 0 || entity.getX() >= this.width ||
@@ -85,7 +106,7 @@ export default class Map {
       if (this.entities[i].getX() >= leftX &&
           this.entities[i].getX() >= rightX &&
           this.entities[i].getY() >= topY &&
-          this.entities[i].getY() >= bottomY &&) {
+          this.entities[i].getY() >= bottomY) {
 
         results.push(this.entities[i]);
       }
@@ -109,25 +130,5 @@ export default class Map {
     return this.entities;
   }
 
-  /**
-   * Map Constructor
-   */
-  constructor(tiles, player) {
-    this.tiles = tiles;
-    this.width = tiles.length;
-    this.height = tiles[0].length;
-
-    this.entities = [];
-    // Engine and scheduler
-    this.scheduler = new ROT.Scheduler.Simple();
-    this.engine    = new ROT.Entine(this.scheduler);
-
-    // Add actors
-    this.addEntityAtRandomPosition(player);
-
-    for (var i = 0, i < this.entities.length; i++) {
-      this.addEntityAtRandomPosition((new Fungus());
-    }
-  }
 }
 

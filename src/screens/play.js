@@ -1,4 +1,5 @@
 import StartScreen from './start';
+import Map from '../map';
 import Entity from '../entities/entity';
 import Player from '../entities/player';
 import { PlayerTemplate } from '../entities/entities';
@@ -19,6 +20,7 @@ export default class PlayScreen {
   }
 
   enter() {
+    console.log('Enter Playscreen');
     let map = [];
     for (let x = 0; x < this.mapWidth; x++) {
       map.push([]);
@@ -44,7 +46,8 @@ export default class PlayScreen {
 
     this.player = new Player();
     this.map = new Map(map, this.player);
-    this.map.getEngine().start();
+    console.log(this.map);
+    // this.map.getEngine().start();
 
   }
 
