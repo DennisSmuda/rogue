@@ -1,4 +1,6 @@
-import { DB32 } from './util/colors.js';
+import {
+  DB32
+} from './util/colors.js';
 
 
 export default class Game {
@@ -11,7 +13,10 @@ export default class Game {
   }
 
   init() {
-    this.display = new ROT.Display({width: this.screenWidth, height: this.screenHeight});
+    this.display = new ROT.Display({
+      width: this.screenWidth,
+      height: this.screenHeight
+    });
     this.display.setOptions({
       bg: DB32.darkPurp,
       fontSize: 28
@@ -21,13 +26,12 @@ export default class Game {
     let bindEventToScreen = (event) => {
       window.addEventListener(event, (e) => {
         game.currentScreen.handleInput(event, e);
-      })
+      });
     };
 
     bindEventToScreen('keydown');
   }
 
-  getDisplay() { return this.display; }
 
   switchScreen(screen) {
     if (this.currentScreen !== null) {
@@ -43,8 +47,20 @@ export default class Game {
     }
   }
 
+
   refresh() {
     this.display.clear();
     this.currentScreen.render(this.display);
   }
+  /* Getters */
+  getDisplay() {
+    return this.display;
+  }
+  getScreenWidth() {
+    return this.screenWidth;
+  }
+  getScreenHeight() {
+    return this.screenHeight;
+  }
 }
+

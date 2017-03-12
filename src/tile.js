@@ -1,4 +1,3 @@
-
 class Tile {
   constructor(properties) {
     this.properties = properties || {};
@@ -24,3 +23,4 @@ export class WallTile extends Tile {
   }
 
 }
+

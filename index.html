@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <title>Roguelike - ROT.js</title>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <title>Roguelike - ROT.js</title>
+</head>
+
+<body class="rogue">
+  <section>
+    <h1>Roguelike</h1>
+    <h4>using <a href="ondras.github.io/rot.js/" target="_blank">rot.js</a></h4>
+  </section>
+
+  <section id="game"></section>
 
 
-  </head>
-  <body class="rogue">
-    <section>
-      <h1>Roguelike</h1>
-      <h4>using <a href="ondras.github.io/rot.js/" target="_blank">rot.js</a></h4>
-    </section>
+  <!-- Vendor -->
+  <script type="text/javascript" src="vendor/rot.min.js"></script>
+  <script type="text/javascript" src="vendor/sprintf.min.js"></script>
 
-    <section id="game"></section>
+  <!-- Webpack Build  -->
+  <script type="text/javascript" src="dist/build.js"></script>
+</body>
 
-    <!-- Vendor -->
-    <script type="text/javascript" src="vendor/rot.min.js"></script>
-    <script type="text/javascript" src="vendor/sprintf.min.js"></script>
-
-    <!-- Webpack Build  -->
-    <script type="text/javascript" src="dist/build.js"></script>
-  </body>
 </html>
+

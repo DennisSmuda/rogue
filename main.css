@@ -6,7 +6,6 @@
 body {
   font-family: 'Consolas';
   background-color: #141321;
-
   color: rgba(255, 255, 255, 0.7);
   margin: 1rem;
 }
@@ -14,19 +13,17 @@ body {
 a {
   color: white;
 }
+
 a:hover {
   text-decoration: none;
 }
-
 
 h1 {
   margin: 0;
   font-size: 220%;
 }
 
-h4 {
-
-}
+h4 {}
 
 #game {
   display: flex;
@@ -35,5 +32,6 @@ h4 {
 
 canvas {
   margin: 2rem;
-  box-shadow: 0 3px 9px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 9px 6px rgba(0, 0, 0, 0.1);
 }
+

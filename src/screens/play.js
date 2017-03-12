@@ -1,4 +1,6 @@
 import StartScreen from './start';
+import Entity from '../entities/entity';
+import { PlayerTemplate } from '../entities/entities';
 
 import {  NullTile,
           WallTile,
@@ -41,6 +43,8 @@ export default class PlayScreen {
         map[x][y] = new WallTile();
       }
     });
+
+    this.player = new Entity('player');
 
   }
   exit() { console.log("Exited Game Screen"); }
