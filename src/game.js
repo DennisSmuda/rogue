@@ -1,7 +1,4 @@
-import {
-  DB32
-} from './util/colors.js';
-
+import { DB32 } from './util/colors.js';
 
 export default class Game {
 
