@@ -9,6 +9,7 @@ class Tile extends Glyph {
 
     this.isWalkable = this.properties['isWalkable'] || false;
     this.isDiggable = this.properties['isDiggable'] || false;
+
   }
 
   isWalkable() {
@@ -34,6 +35,7 @@ export class FloorTile extends Tile {
     isWalkable: true
   }) {
     super(properties);
+    this.type = 'floor'
   }
 
 }

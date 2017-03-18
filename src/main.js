@@ -1,6 +1,6 @@
 import Game from './game.js';
 import StartScreen from './screens/start';
-// import PlayScreen from './screens/play';
+import PlayScreen from './screens/play';
 
 
 /**
@@ -22,8 +22,4 @@ window.onload = () => {
   });
 
 };
-
-
-
-let string = "Hello World!";
 

@@ -28,6 +28,7 @@ export default class PlayScreen {
         map[x].push(new NullTile())
       }
     }
+    console.log(map)
 
     let generator = new ROT.Map.Cellular(this.mapWidth, this.mapHeight);
     generator.randomize(0.5);

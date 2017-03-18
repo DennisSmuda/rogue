@@ -1,4 +1,5 @@
 // import Fungus from './entities/fungus'
+import { NullTile } from './tile';
 
 export default class Map {
   /**
@@ -13,19 +14,21 @@ export default class Map {
     this.entities = [];
     // Engine and scheduler
     this.scheduler = new ROT.Scheduler.Simple();
-    this.engine    = new ROT.Engine(this.scheduler);
+    this.engine = new ROT.Engine(this.scheduler);
 
     // Add actors
     this.addEntityAtRandomPosition(player);
 
-    for (var i = 0; i < this.entities.length; i++) {
-      this.addEntityAtRandomPosition(new Fungus());
-    }
+    console.log('Map Constructor');
+    // for (var i = 0; i < this.entities.length; i++) {
+    //   this.addEntityAtRandomPosition(new Fungus());
+    // }
+
   }
 
   addEntity(entity) {
-    if (entity.getX() < 0 || entity.getX() >= this.width ||
-        entity.getY() < 0 || entity.getY() >= this.height) {
+    if (entity.getX() < 0 ||  entity.getX() >= this.width ||
+      entity.getY() < 0 ||  entity.getY() >= this.height) {
       throw new Error('Adding entity out of bounds.');
     }
     entity.setMap(this);
@@ -48,9 +51,10 @@ export default class Map {
   }
 
   isEmptyFloor(x, y) {
+    console.log(this.getTile(x, y).type)
     return this.getTile(x, y).type === 'floor' && !this.getEntityAt(x, y);
   }
-  
+
   addEntityAtRandomPosition(entity) {
     let position = this.getRandomFloorPosition();
     entity.setX(position.x);
@@ -68,10 +72,10 @@ export default class Map {
   }
 
   getTile(x, y) {
-    if (x < 0 || x >= this.width || y < 0 || y >= this.height) {
+    if (x < 0 || x >= this.width ||  y < 0 || y >= this.height) {
       return 'null'
     } else {
-      return this.tiles[x][y] || new NullTile();
+      return this.tiles[x][y] ||  new NullTile();
     }
   }
 
@@ -84,8 +88,9 @@ export default class Map {
   getRandomFloorPosition() {
     let x, y;
     do {
-      x = Math.floor(Math.random() * this._width);
-      y = Math.floor(Math.random() * this._height);
+      x = Math.floor(Math.random() * this.width);
+      y = Math.floor(Math.random() * this.height);
+      console.log(this.isEmptyFloor(x, y));
     } while (!this.isEmptyFloor(x, y));
 
     return {
@@ -97,17 +102,16 @@ export default class Map {
   getEntitiesWithinRadius(centerX, centerY, radius) {
     results = [];
     // Determine bounds
-    let leftX   = centerX - radius;
-    let rightX  = centerX + radius;
-    let topY    = centerY - radius;
+    let leftX = centerX - radius;
+    let rightX = centerX + radius;
+    let topY = centerY - radius;
     let bottomY = centerY + radius;
 
     for (let i = 0; i < this.entities.length; i++) {
       if (this.entities[i].getX() >= leftX &&
-          this.entities[i].getX() >= rightX &&
-          this.entities[i].getY() >= topY &&
-          this.entities[i].getY() >= bottomY) {
-
+        this.entities[i].getX() >= rightX &&
+        this.entities[i].getY() >= topY &&
+        this.entities[i].getY() >= bottomY) {
         results.push(this.entities[i]);
       }
     }
@@ -129,6 +133,5 @@ export default class Map {
   getEntities() {
     return this.entities;
   }
-
 }
 
